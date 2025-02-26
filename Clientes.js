@@ -76,10 +76,19 @@ function Endereco(rua, numero, cidade, estado) {
 }
 
 
-let cliente1 = new Cliente("Issami Umeoka", 19, "12988992109", "Rua dos Eucalíptos", 20, "São José dos Campos", "SP");
-let cliente2 = new Cliente("Yasmin Nunes", 19, "1199999999", "Rua dos Bosques", 448, "São José dos Campos", "SP");
-let cliente3 = new Cliente("Retep Griffin", 47, "1599999999", "Rua União da Parábola ", 12, "Taubaté", "SP");
+let clientes = [
+    new Cliente("Issami Umeoka", 19, "12988992109", "Rua dos Eucalíptos", 20, "São José dos Campos", "SP"),
+    new Cliente("Yasmin Nunes", 19, "1199999999", "Rua dos Bosques", 448, "São José dos Campos", "SP"),
+    new Cliente("Retep Griffin", 47, "1599999999", "Rua União da Parábola", 12, "Taubaté", "SP")
+];
 
-console.log(cliente1.getDadosFormatados());
-console.log(cliente2.getDadosFormatados());
-console.log(cliente3.getDadosFormatados());
+
+clientes.sort(function(a, b) {
+    return a.getNome().localeCompare(b.getNome()); 
+});
+
+
+console.log("Clientes ordenados:");
+for (let i = 0; i < clientes.length; i++) {
+    console.log(clientes[i].getDadosFormatados());
+}
